@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Blazor.Browser.Rendering;
+﻿using BlazorExample.Services;
+using Microsoft.AspNetCore.Blazor.Browser.Rendering;
 using Microsoft.AspNetCore.Blazor.Browser.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BlazorExample
 {
@@ -9,7 +11,7 @@ namespace BlazorExample
         {
             var serviceProvider = new BrowserServiceProvider(configure =>
             {
-                // Add any custom services here
+                configure.Add(ServiceDescriptor.Singleton(new GeradorDeNumeros()));
             });
 
             new BrowserRenderer(serviceProvider).AddComponent<App>("app");

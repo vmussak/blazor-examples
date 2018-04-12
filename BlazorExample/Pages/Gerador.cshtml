@@ -1,0 +1,17 @@
+﻿@page "/gerar-numero"
+@inject GeradorDeNumeros GeraNumeros
+
+<h1>Gerador de números aleatórios</h1>
+
+
+<h3>O numero gerado foi @numero</h3>
+
+@functions {
+    int numero;
+
+    protected override async Task OnInitAsync()
+    {
+        numero = GeraNumeros.GerarNumero(1, 1000);
+    }
+
+}
